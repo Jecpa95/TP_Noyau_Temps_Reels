@@ -27,3 +27,6 @@
       ![image](https://user-images.githubusercontent.com/125466579/230084287-2884fd69-048f-430c-bde1-f26d9adc7fd1.png)
       
   6.  Modifiez le programme pour que la LED s’allume lorsque le bouton USER est appuyé. Le bouton est sur PI11.
+      ![image](https://user-images.githubusercontent.com/125466579/230085232-f47f2d5c-2309-42fc-8a92-01464dadfcf5.png)
+
+      ![image](https://user-images.githubusercontent.com/125466579/230085085-74e6df64-8f54-415e-9d67-03bd09b75be7.png)
