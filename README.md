@@ -1,6 +1,9 @@
 # TP_Noyau_Temps_Reels
 
-##0.1 Premiers pas
+0 (Re)prise en main
+
+0.1 Premiers pas
+
   1.  Où se situe le fichier main.c ?
       Le fichier main.c se situe dans le dossier Core->Src
       ![image](https://user-images.githubusercontent.com/125466579/230084485-75f504f9-b557-4707-b96b-78e90a42add7.png)
@@ -31,4 +34,9 @@
 
       ![image](https://user-images.githubusercontent.com/125466579/230085085-74e6df64-8f54-415e-9d67-03bd09b75be7.png)
       
-##1 FreeRTOS, tâches et sémaphores
+1 FreeRTOS, tâches et sémaphores
+
+1.1 Tâche simple
+
+  1.  En quoi le paramètre TOTAL_HEAP_SIZE a-t-il de l’importance ?
+      
