@@ -1,6 +1,6 @@
 # TP_Noyau_Temps_Reels
 
-0.1 Premiers pas
+##0.1 Premiers pas
   1.  Où se situe le fichier main.c ?
       Le fichier main.c se situe dans le dossier Core->Src
       ![image](https://user-images.githubusercontent.com/125466579/230084485-75f504f9-b557-4707-b96b-78e90a42add7.png)
@@ -30,3 +30,5 @@
       ![image](https://user-images.githubusercontent.com/125466579/230085232-f47f2d5c-2309-42fc-8a92-01464dadfcf5.png)
 
       ![image](https://user-images.githubusercontent.com/125466579/230085085-74e6df64-8f54-415e-9d67-03bd09b75be7.png)
+      
+##1 FreeRTOS, tâches et sémaphores
