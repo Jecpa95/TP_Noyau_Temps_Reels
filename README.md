@@ -39,4 +39,59 @@
 1.1 Tâche simple
 
   1.  En quoi le paramètre TOTAL_HEAP_SIZE a-t-il de l’importance ?
+      Il détermine la quantité de mémoire disponible pour allouer des tâches et des ressources dans le système. Cette mémoire est exclusivement réservé pour freeRTOS
+      Dans le fichier FreeRTOSConfig.h, on retrouve la configuration faites, comme on peut le voir pour le paramètre TOTAL_HEAP_SIZE : 
+      ![image](https://user-images.githubusercontent.com/125466579/236872011-932165c9-fe78-41a9-8192-912695cd9c9c.png)
       
+  2. Créez une tâche permettant de faire changer l’état de la LED toutes les 100ms et profitez-en pour afficher du texte à chaque changement d’état.
+     ![image](https://user-images.githubusercontent.com/125466579/236872752-21147bd6-b980-42ff-848c-60f8c7d04d54.png)
+    
+     Quel est le rôle de la macro portTICK_PERIOD_MS ?
+     La macro portTICK_PERIOD_MS est utilisée dans FreeRTOS pour convertir un temps en millisecondes en une valeur de temps d'attente qui peut être utilisée dans les fonctions de temporisation de FreeRTOS. par exemple vTaskDelay.
+     
+1.2 Sémaphores pour la synchronisation
+  
+  Création de deux tâches, taskGive et taskTake, ayant deux priorités differentes. TaskGive donne un sémaphore toutes les 100ms. Les 2 taches affichent du texte avant et après avoir donné le sémaphore. TaskTake prend le sémaphore. il y a une gestion d’erreur lors de l’acquisition du sémaphore. on invoque un reset software au STM32 si le sémaphore n’est pas acquis au bout d’une seconde. Pour valider la gestion d’erreur, on ajoute 100ms au delai de TaskGive à chaque itération :
+  ![image](https://user-images.githubusercontent.com/125466579/236873880-506a1d8a-0b21-4fa5-9bef-1c8b99640ed1.png)
+  
+  Premier test avec TaskTake priorité 1 et TaskGive priorité 2 : 
+  ![image](https://user-images.githubusercontent.com/125466579/236874431-295041d6-b1dc-4c63-b881-c916007df59b.png)
+  ![image](https://user-images.githubusercontent.com/125466579/236874443-6f28d449-0ce4-44f6-b9bf-ee08ba313f71.png)
+
+  Deuxième test avec TaskTake priorité 2 et TaskGive priorité 1 : 
+  ![image](https://user-images.githubusercontent.com/125466579/236874512-ce5f1529-afd3-4ccc-81b6-be4050d0fa2c.png)
+  ![image](https://user-images.githubusercontent.com/125466579/236874536-9a764549-be55-4505-b2f4-17da01aa2e5a.png)
+
+  Dans le deuxième test TaskTake a une priorité plus élevé, donc elle est appelé en priorité. De ce fait TaskTake a le temps de réaliser tout son processus avant que TaskGive ne soit appelé. à l'invers du premier test.
+  
+1.3 Notification
+  
+  ![image](https://user-images.githubusercontent.com/125466579/236875848-eb6c5ce4-ba2b-4460-8197-94630aae2483.png)
+  
+  Premier test :
+  ![image](https://user-images.githubusercontent.com/125466579/236875561-7155c30a-30f2-4016-b2be-ba4d2fbb66ad.png)
+  ![image](https://user-images.githubusercontent.com/125466579/236875576-a6ea798f-8a85-4381-8032-0b92d1d657cc.png)
+
+  Deuxième test : 
+  ![image](https://user-images.githubusercontent.com/125466579/236875910-2b29a04e-d084-49a9-a360-2c5c10243e65.png)
+  ![image](https://user-images.githubusercontent.com/125466579/236875928-442ece3f-ed10-4dd6-9598-93e75847ec1d.png)
+
+1.4 Queues
+  
+  ![image](https://user-images.githubusercontent.com/125466579/236876070-2d604333-1069-4f34-af66-44b7652f9d9b.png)
+  ![image](https://user-images.githubusercontent.com/125466579/236876153-edbb175f-f9ee-4983-a2d9-6f91be951e1f.png)
+
+1.5 Réentrance et exclusion mutuelle
+  
+   Problème du code : dans le printf la valeur de « delay » est toujours à 2. Le printf n’a pas le temps de finir qu’on passe directement dans l’autre tâche, donc le      printf termine son buffer avec le deuxième printf.
+   ![image](https://user-images.githubusercontent.com/125466579/236876930-ae904f76-0f48-43b2-bbef-c1e1ce5ceb3f.png)
+
+
+  Pour résoudre ce problème on pourrait utiliser des Sémaphores mutex :
+  Il faut au préalable activer la réentrance : 
+  ![image](https://user-images.githubusercontent.com/125466579/236877109-d5a0a6f7-6d2c-49e3-851a-89358d315f9c.png)
+
+  ![image](https://user-images.githubusercontent.com/125466579/236876799-991533f3-62b7-44c3-91e9-1fc733d1b577.png)
+  ![image](https://user-images.githubusercontent.com/125466579/236876950-af4fff59-c184-4c21-b352-ef7620cbbc5d.png)
+
+
