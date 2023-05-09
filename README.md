@@ -94,4 +94,25 @@
   ![image](https://user-images.githubusercontent.com/125466579/236876799-991533f3-62b7-44c3-91e9-1fc733d1b577.png)
   ![image](https://user-images.githubusercontent.com/125466579/236876950-af4fff59-c184-4c21-b352-ef7620cbbc5d.png)
 
+3 Debug, gestion d’erreur et statistiques
+
+3.1 Gestion du tas
+
+  1. Quel est le nom de la zone réservée à l’allocation dynamique ?
+     La zone s'appelle "Heap", on peut modifier la taille mémoire dynamique avec le paramètre "Total Heap Size"
+     
+  2. Est-ce géré par FreeRTOS ou la HAL ?
+     C'est freeRTOS qui gère l'allocation dynamique. La HAL est une couche logicielle permettant de gérer les périphériques.
+    
+   Avant modifications :
+  ![image](https://user-images.githubusercontent.com/125466579/236898464-c3bc1556-a042-4d64-98d4-73d138bddfd6.png)
+  ![image](https://user-images.githubusercontent.com/125466579/236898498-cdcf413e-2cad-4ec9-81a2-ec2dedef733b.png)
+  ![image](https://user-images.githubusercontent.com/125466579/236898508-c54ce7ed-e97b-4e7d-9134-b6886d848305.png)
+  
+  Après modifications : 
+  ![image](https://user-images.githubusercontent.com/125466579/236898672-81ae5b23-bae2-4018-bfd5-d62f1e599c40.png)
+  ![image](https://user-images.githubusercontent.com/125466579/236898681-5a63afa0-85b2-4cb5-b7fd-e38d15549b8e.png)
+  Onn remarque que la taille de la RAM a énormément augmenté.
+  
+3.2 Gestion des piles
 
