@@ -116,3 +116,36 @@
   
 3.2 Gestion des piles
 
+La fonction CHECK_FOR_STACK_OVERFLOW() est une fonction qui permet de détecter les débordements de pile (stack overflow) dans les tâches du système.
+J'ai créé pour tester cette fonction une tache ayant un tableau beaucoup trop grand à la taille aloué à cette tache : 
+![image](https://user-images.githubusercontent.com/125466579/237015397-c6f8d6f1-42f3-4ba1-b884-aa362083e68e.png)
+
+Les hooks sont des fonctions qui sont appelées par le noyau de FreeRTOS à des moments spécifiques pendant l'exécution de l’application.
+Voici une liste des principaux hooks fournis par FreeRTOS :
+  -	vApplicationMallocFailedHook : appelé lorsque la fonction pvPortMalloc() échoue lors d'une allocation de mémoire.
+  -	vApplicationIdleHook : appelé périodiquement lorsque le système est inactif.
+  -	vApplicationStackOverflowHook : appelé lorsqu'un dépassement de pile est détecté.
+  -	vApplicationTickHook : appelé à chaque interruption de tic système.
+  -	vApplicationDaemonTaskStartupHook : appelé lors du démarrage des tâches de démon.
+  -	vApplicationIPNetworkEventHook : appelé pour signaler des événements de réseau tels que la connexion ou la déconnexion.
+  -	vApplicationGetIdleTaskMemory : appelé pour récupérer la mémoire allouée à la tâche d'attente (idle).
+  -	vApplicationGetTimerTaskMemory : appelé pour récupérer la mémoire allouée à la tâche de temporisation.
+
+3.3 Statistiques dans l’IDE
+
+On paramètre les trois paramètres suivants : 
+
+- GENERATE_RUN_TIME_STATS: ce paramètre permet de collecter des statistiques d'exécution en temps réel pour chaque tâche du système, telles que le temps d'exécution, le temps d'attente, la quantité de temps utilisée pour la planification, etc. Lorsque ce paramètre est activé, FreeRTOS génère des statistiques d'exécution pour chaque tâche du système et les rend disponibles pour l'utilisateur via des fonctions API telles que vTaskGetRunTimeStats().
+
+- USE_TRACE_FACILITY: ce paramètre permet d'activer la fonctionnalité de trace de FreeRTOS, qui permet de tracer les événements système tels que les commutations de contexte, les activations de tâches, les blocages de sémaphores, etc. Ces événements sont enregistrés dans un tampon circulaire qui peut être interrogé à tout moment pour déterminer l'historique des événements système. 
+
+- USE_STATS_FORMATTING_FUNCTIONS: ce paramètre permet d'activer des fonctions de formatage des statistiques et des traces pour faciliter leur analyse et leur affichage. Lorsque ce paramètre est activé, FreeRTOS fournit des fonctions de formatage qui permettent d'afficher les statistiques d'exécution et les traces sous une forme lisible pour l'utilisateur. Cela facilite l'analyse et la compréhension des résultats de diagnostic.
+
+![image](https://user-images.githubusercontent.com/125466579/237015656-fc72115b-0b1b-4a19-87fc-58002d1e0ecc.png)
+
+Une fois les paramètres activer, on peut à tout moment mettre en pause le programme et regarder les statistique du programme :
+
+![image](https://user-images.githubusercontent.com/125466579/237017376-6f4f4055-4f27-4af7-a5ac-15ea7017151a.png)
+
+
+
