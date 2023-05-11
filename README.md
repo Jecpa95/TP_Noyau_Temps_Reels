@@ -147,5 +147,15 @@ Une fois les paramètres activer, on peut à tout moment mettre en pause le prog
 
 ![image](https://user-images.githubusercontent.com/125466579/237017376-6f4f4055-4f27-4af7-a5ac-15ea7017151a.png)
 
+![image](https://github.com/Jecpa95/TP_Noyau_Temps_Reels/assets/125466579/27c5fd8a-5ce3-403b-a51a-8234505cae08)
 
+![image](https://github.com/Jecpa95/TP_Noyau_Temps_Reels/assets/125466579/ae0a9188-c9f8-4a1b-8fd5-7f215d371a21)
+
+![image](https://github.com/Jecpa95/TP_Noyau_Temps_Reels/assets/125466579/b1f97d63-7400-42a5-a647-611952db50b0)
+
+![image](https://github.com/Jecpa95/TP_Noyau_Temps_Reels/assets/125466579/29ba92fe-16e1-45de-bf2c-e920a53fcb34)
+
+3.4 Affichage des statistiques dans le shell
+
+![image](https://github.com/Jecpa95/TP_Noyau_Temps_Reels/assets/125466579/eff2caae-5b0f-40f1-adb6-151dd1c5b0f7)
 
